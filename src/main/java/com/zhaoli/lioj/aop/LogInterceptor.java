@@ -26,6 +26,8 @@ public class LogInterceptor {
 
     /**
      * 执行拦截
+     * 每次请求会打印日志
+     * 每次请求的响应会打印日志
      */
     @Around("execution(* com.zhaoli.lioj.controller.*.*(..))")
     public Object doInterceptor(ProceedingJoinPoint point) throws Throwable {
