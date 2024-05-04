@@ -1,6 +1,6 @@
 # 数据库初始化
 # @author zhaoli
-# @from
+# @from 跟新
 
 -- 创建库
 create database if not exists lioj;
