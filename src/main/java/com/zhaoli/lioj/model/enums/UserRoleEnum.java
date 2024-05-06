@@ -17,9 +17,9 @@ public enum UserRoleEnum {
     ADMIN("管理员", "admin"),
     BAN("被封号", "ban");
 
-    private final String text;
+    private final String text;//角色的文字描述
 
-    private final String value;
+    private final String value;//对应的值
 
     UserRoleEnum(String text, String value) {
         this.text = text;
