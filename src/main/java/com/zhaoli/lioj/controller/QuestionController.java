@@ -10,10 +10,7 @@ import com.zhaoli.lioj.common.ResultUtils;
 import com.zhaoli.lioj.constant.UserConstant;
 import com.zhaoli.lioj.exception.BusinessException;
 import com.zhaoli.lioj.exception.ThrowUtils;
-import com.zhaoli.lioj.model.dto.question.QuestionAddRequest;
-import com.zhaoli.lioj.model.dto.question.QuestionEditRequest;
-import com.zhaoli.lioj.model.dto.question.QuestionQueryRequest;
-import com.zhaoli.lioj.model.dto.question.QuestionUpdateRequest;
+import com.zhaoli.lioj.model.dto.question.*;
 import com.zhaoli.lioj.model.entity.Question;
 import com.zhaoli.lioj.model.entity.User;
 import com.zhaoli.lioj.model.vo.QuestionVO;
@@ -31,7 +28,7 @@ import java.util.List;
  * 题目接口
  *
  * @author zhaoli
- * @from 
+ * @from
  */
 @RestController
 @RequestMapping("/question")
@@ -63,6 +60,14 @@ public class QuestionController {
         List<String> tags = questionAddRequest.getTags();
         if (tags != null) {
             question.setTags(JSONUtil.toJsonStr(tags));
+        }
+        List<JudgeCase> judgeCase = questionAddRequest.getJudgeCase();
+        if (judgeCase != null) {
+            question.setJudgeCase(JSONUtil.toJsonStr(judgeCase));
+        }
+        JudgeConfig judgeConfig = questionAddRequest.getJudgeConfig();
+        if (judgeConfig != null) {
+            question.setJudgeConfig(JSONUtil.toJsonStr(judgeConfig));
         }
         questionService.validQuestion(question, true);
         User loginUser = userService.getLoginUser(request);
@@ -113,6 +118,14 @@ public class QuestionController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         Question question = new Question();
+        List<JudgeCase> judgeCase = questionUpdateRequest.getJudgeCase();
+        if (judgeCase != null) {
+            question.setJudgeCase(JSONUtil.toJsonStr(judgeCase));
+        }
+        JudgeConfig judgeConfig = questionUpdateRequest.getJudgeConfig();
+        if (judgeConfig != null) {
+            question.setJudgeConfig(JSONUtil.toJsonStr(judgeConfig));
+        }
         BeanUtils.copyProperties(questionUpdateRequest, question);
         List<String> tags = questionUpdateRequest.getTags();
         if (tags != null) {
@@ -171,7 +184,7 @@ public class QuestionController {
      */
     @PostMapping("/list/page/vo")
     public BaseResponse<Page<QuestionVO>> listQuestionVOByPage(@RequestBody QuestionQueryRequest questionQueryRequest,
-            HttpServletRequest request) {
+                                                               HttpServletRequest request) {
         long current = questionQueryRequest.getCurrent();
         long size = questionQueryRequest.getPageSize();
         // 限制爬虫
@@ -190,7 +203,7 @@ public class QuestionController {
      */
     @PostMapping("/my/list/page/vo")
     public BaseResponse<Page<QuestionVO>> listMyQuestionVOByPage(@RequestBody QuestionQueryRequest questionQueryRequest,
-            HttpServletRequest request) {
+                                                                 HttpServletRequest request) {
         if (questionQueryRequest == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
@@ -220,6 +233,14 @@ public class QuestionController {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         Question question = new Question();
+        List<JudgeCase> judgeCase = questionEditRequest.getJudgeCase();
+        if (judgeCase != null) {
+            question.setJudgeCase(JSONUtil.toJsonStr(judgeCase));
+        }
+        JudgeConfig judgeConfig = questionEditRequest.getJudgeConfig();
+        if (judgeConfig != null) {
+            question.setJudgeConfig(JSONUtil.toJsonStr(judgeConfig));
+        }
         BeanUtils.copyProperties(questionEditRequest, question);
         List<String> tags = questionEditRequest.getTags();
         if (tags != null) {

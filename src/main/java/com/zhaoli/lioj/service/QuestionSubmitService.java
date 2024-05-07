@@ -1,5 +1,6 @@
 package com.zhaoli.lioj.service;
 
+import com.zhaoli.lioj.model.dto.questionsubmit.QuestionSubmitAddRequest;
 import com.zhaoli.lioj.model.entity.QuestionSubmit;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zhaoli.lioj.model.entity.User;
@@ -13,18 +14,9 @@ public interface QuestionSubmitService extends IService<QuestionSubmit> {
     /**
      * 提交题目
      *
-     * @param questionId
+     * @param questionSubmitAddRequest 题目提交信息
      * @param loginUser
-     * @return
+     * @return 提交记录的 id
      */
-    int doQuestionSubmit(long questionId, User loginUser);
-
-    /**
-     * 提交题目（内部服务）
-     *
-     * @param userId
-     * @param questionId
-     * @return
-     */
-    int doQuestionSubmitInner(long userId, long questionId);
+    long doQuestionSubmit(QuestionSubmitAddRequest questionSubmitAddRequest, User loginUser);
 }
