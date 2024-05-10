@@ -8,7 +8,7 @@ import com.zhaoli.lioj.judge.codesandbox.model.ExecuteCodeResponse;
  *
  * @author 赵立
  */
-public interface ExecuteCodeSandbox {
+public interface CodeSandbox {
     /**
      * 执行代码
      *
