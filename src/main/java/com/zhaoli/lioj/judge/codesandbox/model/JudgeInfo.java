@@ -1,4 +1,4 @@
-package com.zhaoli.lioj.model.dto.questionsubmit;
+package com.zhaoli.lioj.judge.codesandbox.model;
 
 import lombok.Data;
 

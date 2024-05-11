@@ -1,6 +1,5 @@
 package com.zhaoli.lioj.judge.codesandbox.model;
 
-import com.zhaoli.lioj.model.dto.questionsubmit.JudgeInfo;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

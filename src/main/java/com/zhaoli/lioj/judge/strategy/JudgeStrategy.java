@@ -1,6 +1,6 @@
 package com.zhaoli.lioj.judge.strategy;
 
-import com.zhaoli.lioj.model.dto.questionsubmit.JudgeInfo;
+import com.zhaoli.lioj.judge.codesandbox.model.JudgeInfo;
 
 /**
  * 判题策略

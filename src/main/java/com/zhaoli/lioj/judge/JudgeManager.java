@@ -4,7 +4,7 @@ import com.zhaoli.lioj.judge.strategy.DefaultJudgeStrategy;
 import com.zhaoli.lioj.judge.strategy.JavaLanguageJudgeStrategy;
 import com.zhaoli.lioj.judge.strategy.JudgeContext;
 import com.zhaoli.lioj.judge.strategy.JudgeStrategy;
-import com.zhaoli.lioj.model.dto.questionsubmit.JudgeInfo;
+import com.zhaoli.lioj.judge.codesandbox.model.JudgeInfo;
 import com.zhaoli.lioj.model.entity.QuestionSubmit;
 import com.zhaoli.lioj.model.enums.QuestionSubmintLanguageEnum;
 import org.springframework.stereotype.Service;
