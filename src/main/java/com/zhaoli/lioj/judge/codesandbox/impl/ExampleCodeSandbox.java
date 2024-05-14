@@ -25,7 +25,7 @@ public class ExampleCodeSandbox implements CodeSandbox {
         JudgeInfo judgeInfo = new JudgeInfo();
         judgeInfo.setMessage(JudgeInfoMessageEnum.ACCEPTED.getText());
         judgeInfo.setMemory(100);
-        judgeInfo.setTime(100);
+        judgeInfo.setTime(100L);
         executeCodeResponse.setJudgeInfo(judgeInfo);
         return executeCodeResponse;
     }

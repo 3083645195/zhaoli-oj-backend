@@ -74,7 +74,13 @@ class CodeSandboxTest {
     void executeCodeProxy() {
         CodeSandbox codeSandbox = CodeSandboxFactory.newInstance(type);
         codeSandbox = new CodeSandboxProxy(codeSandbox);
-        String code = "int main() { printf(\"Hello, World!\"); return 0;}";
+        String code = "public class Main {\n" +
+                "    public static void main(String[] args) {\n" +
+                "        Integer a = Integer.parseInt(args[0]);\n" +
+                "        Integer b = Integer.parseInt(args[1]);\n" +
+                "        System.out.println(a + b);\n" +
+                "    }\n" +
+                "}";
         String language = QuestionSubmintLanguageEnum.JAVA.getValue();
         List<String> inputList = Arrays.asList("1 2", "2 3");
         ExecuteCodeRequest executeCodeRequest = ExecuteCodeRequest.builder()

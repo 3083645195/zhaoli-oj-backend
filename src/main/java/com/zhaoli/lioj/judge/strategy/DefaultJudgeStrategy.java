@@ -25,7 +25,7 @@ public class DefaultJudgeStrategy implements JudgeStrategy {
     public JudgeInfo doJudge(JudgeContext judgeContext) {
         JudgeInfo judgeInfo = judgeContext.getJudgeInfo();
         int memory = judgeInfo.getMemory();//执行消耗内存
-        int time = judgeInfo.getTime();//执行耗费时间
+        Long time = judgeInfo.getTime();//执行耗费时间
         List<String> inputList = judgeContext.getInputList();
         List<String> outputList = judgeContext.getOutputList();
         Question question = judgeContext.getQuestion();

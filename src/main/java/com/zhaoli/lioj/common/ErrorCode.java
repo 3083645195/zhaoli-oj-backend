@@ -4,7 +4,7 @@ package com.zhaoli.lioj.common;
  * 自定义错误码
  *
  * @author zhaoli
- * @from 
+ * @from
  */
 public enum ErrorCode {
 
@@ -15,7 +15,8 @@ public enum ErrorCode {
     NOT_FOUND_ERROR(40400, "请求数据不存在"),
     FORBIDDEN_ERROR(40300, "禁止访问"),
     SYSTEM_ERROR(50000, "系统内部异常"),
-    OPERATION_ERROR(50001, "操作失败");
+    OPERATION_ERROR(50001, "操作失败"),
+    API_REQUST_ERROR(50010, "接口调用失败");
 
     /**
      * 状态码
