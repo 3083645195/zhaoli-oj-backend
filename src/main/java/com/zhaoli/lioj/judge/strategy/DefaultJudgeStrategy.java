@@ -23,6 +23,14 @@ public class DefaultJudgeStrategy implements JudgeStrategy {
      */
     @Override
     public JudgeInfo doJudge(JudgeContext judgeContext) {
+        JudgeInfo judgeInfoResponse = new JudgeInfo();
+        //如果代码沙箱执行结果不为成功
+        String responseMessage = judgeContext.getJudgeInfo().getMessage();
+        if(!JudgeInfoMessageEnum.ACCEPTED.getText().equals(responseMessage)){
+            judgeInfoResponse.setMessage(responseMessage);
+            return judgeInfoResponse;
+        }
+        //代码沙箱执行结果成功
         JudgeInfo judgeInfo = judgeContext.getJudgeInfo();
         int memory = judgeInfo.getMemory();//执行消耗内存
         Long time = judgeInfo.getTime();//执行耗费时间
@@ -31,7 +39,6 @@ public class DefaultJudgeStrategy implements JudgeStrategy {
         Question question = judgeContext.getQuestion();
         List<JudgeCase> judgeCaseList = judgeContext.getJudgeCaseList();
         JudgeInfoMessageEnum judgeInfoMessageEnum = JudgeInfoMessageEnum.ACCEPTED;
-        JudgeInfo judgeInfoResponse = new JudgeInfo();
         judgeInfoResponse.setMemory(memory);
         judgeInfoResponse.setTime(time);
         //先判断沙箱执行的结果输出数量是否和预期输出数量相等
