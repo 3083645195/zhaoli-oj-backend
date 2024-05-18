@@ -39,9 +39,9 @@ public class JudgeServiceImpl implements JudgeService {
     private JudgeManager judgeManager;
 
     @Override
-    public QuestionSubmit doJudge(long questionqSubmitId) {
+    public QuestionSubmit doJudge(long questionSubmitId) {
         //1.传入题目的提交 id，获取到对应的题目、提交信息(包含代码、编程语言等)
-        QuestionSubmit questionSubmit = questionSubmitService.getById(questionqSubmitId);
+        QuestionSubmit questionSubmit = questionSubmitService.getById(questionSubmitId);
         if (questionSubmit == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "提交信息不存在");
         }
@@ -56,7 +56,7 @@ public class JudgeServiceImpl implements JudgeService {
         }
         //3.更改判题状态（题目提交状态）为“判题中”，防止重复执行
         QuestionSubmit questionSubmitUpdate = new QuestionSubmit();
-        questionSubmitUpdate.setId(questionqSubmitId);
+        questionSubmitUpdate.setId(questionSubmitId);
         questionSubmitUpdate.setStatus(QuestionSubmitStatusEnum.RUNNING.getValue());
         boolean updateResult = questionSubmitService.updateById(questionSubmitUpdate);
         if (!updateResult) {
@@ -92,7 +92,7 @@ public class JudgeServiceImpl implements JudgeService {
         //todo 可能还有其他的异常情况
         //6.修改数据库中的判题结果
         questionSubmitUpdate = new QuestionSubmit();
-        questionSubmitUpdate.setId(questionqSubmitId);
+        questionSubmitUpdate.setId(questionSubmitId);
         questionSubmitUpdate.setJudgeInfo(JSONUtil.toJsonStr(judgeInfo));
         questionSubmitUpdate.setStatus(QuestionSubmitStatusEnum.SUCCEED.getValue());
         updateResult = questionSubmitService.updateById(questionSubmitUpdate);

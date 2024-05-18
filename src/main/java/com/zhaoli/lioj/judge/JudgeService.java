@@ -11,8 +11,8 @@ public interface JudgeService {
     /**
      * 判题
      *
-     * @param questionqSubmitId
+     * @param questionSubmitId
      * @return
      */
-    QuestionSubmit doJudge(long questionqSubmitId);
+    QuestionSubmit doJudge(long questionSubmitId);
 }
