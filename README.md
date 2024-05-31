@@ -26,11 +26,11 @@ spring boot+mybatis+mybatis plus+redis+java-docker(后期使用spring cloud alib
 
 ### 流程图
 
-![img_1.png](doc%2Fimg_1.png)
+![img_1](https://zhaoli-image.oss-cn-beijing.aliyuncs.com/img/img_1.png)
 
 ### 时序图
 
-![img_2.png](doc%2Fimg_2.png)
+![img_2](https://zhaoli-image.oss-cn-beijing.aliyuncs.com/img/img_2.png)
 
 ## 实现核心
 
@@ -87,7 +87,7 @@ spring boot+mybatis+mybatis plus+redis+java-docker(后期使用spring cloud alib
 
 ### 这两个模块完全解耦
 
-![img_3.png](doc%2Fimg_3.png)
+![img_3](https://zhaoli-image.oss-cn-beijing.aliyuncs.com/img/img_3.png)
 
 ### 代码沙箱需要接受和输出一组运行用例
 
@@ -124,10 +124,10 @@ spring boot+mybatis+mybatis plus+redis+java-docker(后期使用spring cloud alib
 - 每个代码沙箱类都写一遍log.info?难道每次调用代码沙箱前后都执行 log?<br>
   使用代理模式，提供一个 Proxy，来增强代码沙箱的能力(代理模式的作用就是增强能力)
 - 原本:需要用户自己去调用多次。<br>
-  ![img_4.png](doc%2Fimg_4.png)
+  ![img_4](https://zhaoli-image.oss-cn-beijing.aliyuncs.com/img/img_4.png)
 - 使用代理后:
   不仅不用改变原本的代码沙箱实现类，而且对调用者来说，调用方式几乎没有改变，也不需要在每个调用沙箱的地方去写统计代码。<br>
-  ![img_5.png](doc%2Fimg_5.png)
+  ![img_5](https://zhaoli-image.oss-cn-beijing.aliyuncs.com/img/img_5.png)
 - 代理模式的实现原理
     1. 实现被代理的接口
     2. 通过构造函数接受一个被代理的接口实现类
@@ -169,3 +169,9 @@ Java 要额外花 3 秒。<br>
    但是，如果选择某种判题策略的过程比较复杂，如果都写在调用判题服务的代码中，代码会越来越复杂，会有大量 if .. else
    .，所以建议单独编写一个判断策略的类。
 5. 定义JudgeManager，目的是尽量简化对判题功能的调用，让调用方写最少的代码、调用最简单。对于判题策略的选取，也是在JudgeManager里处理的。
+
+
+
+
+
+![swagger](https://zhaoli-image.oss-cn-beijing.aliyuncs.com/img/swagger.png)
